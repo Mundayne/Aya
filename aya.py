@@ -14,6 +14,7 @@
     'plugins.dice.dice',
     'plugins.gif.gif',
     'plugins.8ball.8ball',
+    'plugins.help.help',
 ***REMOVED***
 
 
