@@ -7,63 +7,7 @@
 ***REMOVED***
 
 ***REMOVED***
-    'plugins.moderator.moderator',
-    'plugins.minigames.minigames',
-    'plugins.coinflip.coinflip',
-    'plugins.invite.invite',
-    'plugins.dice.dice',
-    'plugins.gif.gif',
-    'plugins.8ball.8ball',
-    'plugins.help.help',
 ***REMOVED***
-
-
-***REMOVED***
-***REMOVED***
-***REMOVED***
-
-
-***REMOVED***
-async def load(ctx, *, plugin):
-    """ loading a plugin """
-***REMOVED***
-***REMOVED***
-            Aya.load_extension('plugins.{}.{}'.format(plugin, plugin))
-            default_extensions.append('plugins.{}.{}'.format(plugin, plugin))
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-
-
-***REMOVED***
-async def unload(ctx, *, plugin):
-    """ unloading a plugin """
-***REMOVED***
-***REMOVED***
-            Aya.unload_extension('plugins.{}.{}'.format(plugin, plugin))
-            default_extensions.remove('plugins.{}.{}'.format(plugin, plugin))
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-
-
-***REMOVED***
-async def reload(ctx, *, plugin):
-    """ reloading a plugin """
-***REMOVED***
-***REMOVED***
-            Aya.unload_extension('plugins.{}.{}'.format(plugin, plugin))
-            default_extensions.remove('plugins.{}.{}'.format(plugin, plugin))
-            Aya.load_extension('plugins.{}.{}'.format(plugin, plugin))
-            default_extensions.append('plugins.{}.{}'.format(plugin, plugin))
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -75,14 +19,72 @@ async def reload(ctx, *, plugin):
 
 ***REMOVED***
 ***REMOVED***
-    """ Testing if the bot is up and working """
+***REMOVED***
+
+
+***REMOVED***
+***REMOVED***
+    """ loading a cog """
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+            print('{cogname} has been loaded.')
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+
+***REMOVED***
+***REMOVED***
+    """ unloading a cog """
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+            print('{cogname} has been unloaded.')
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+
+***REMOVED***
+***REMOVED***
+    """ reloading a cog """
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+            print('{cogname} has been reloaded.')
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+
+***REMOVED***
+***REMOVED***
+    """ Check if Aya is up and running """
 ***REMOVED***
 
 
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-    print('Default plugins has been loaded.')
+***REMOVED***
 ***REMOVED***
 
 ***REMOVED***
