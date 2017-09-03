@@ -7,14 +7,13 @@ Aya.remove_command('help')
 client = discord.Client()
 
 default_extensions = [
-    'plugins.moderator.moderator',
-    'plugins.minigames.minigames',
-    'plugins.coinflip.coinflip',
-    'plugins.invite.invite',
-    'plugins.dice.dice',
-    'plugins.gif.gif',
-    'plugins.8ball.8ball',
-    'plugins.help.help',
+    'cogs.help',
+    'cogs.invite',
+    'cogs.moderator',
+    'cogs.coinflip',
+    'cogs.dice',
+    'cogs.gif',
+    'cogs.8ball',
 ]
 
 
@@ -24,12 +23,13 @@ async def on_ready():
 
 
 @Aya.command(pass_context=True)
-async def load(ctx, *, plugin):
-    """ loading a plugin """
+async def load(ctx, *, cogname):
+    """ loading a cog """
     if ctx.message.author == ctx.message.server.owner:
         try:
-            Aya.load_extension('plugins.{}.{}'.format(plugin, plugin))
-            default_extensions.append('plugins.{}.{}'.format(plugin, plugin))
+            Aya.load_extension('cogs.{}'.format(cogname))
+            default_extensions.append('cogs.{}'.format(cogname))
+            print('{cogname} has been loaded.')
         except Exception as e:
             await Aya.say('\N{PISTOL}')
             await Aya.say('{}: {}'.format(type(e).__name__, e))
@@ -40,12 +40,13 @@ async def load(ctx, *, plugin):
 
 
 @Aya.command(pass_context=True)
-async def unload(ctx, *, plugin):
-    """ unloading a plugin """
+async def unload(ctx, *, cogname):
+    """ unloading a cog """
     if ctx.message.author == ctx.message.server.owner:
         try:
-            Aya.unload_extension('plugins.{}.{}'.format(plugin, plugin))
-            default_extensions.remove('plugins.{}.{}'.format(plugin, plugin))
+            Aya.unload_extension('cogs.{}'.format(cogname))
+            default_extensions.remove('cogs.{}'.format(cogname))
+            print('{cogname} has been unloaded.')
         except Exception as e:
             await Aya.say('\N{PISTOL}')
             await Aya.say('{}: {}'.format(type(e).__name__, e))
@@ -56,14 +57,15 @@ async def unload(ctx, *, plugin):
 
 
 @Aya.command(pass_context=True)
-async def reload(ctx, *, plugin):
-    """ reloading a plugin """
+async def reload(ctx, *, cogname):
+    """ reloading a cog """
     if ctx.message.author == ctx.message.server.owner:
         try:
-            Aya.unload_extension('plugins.{}.{}'.format(plugin, plugin))
-            default_extensions.remove('plugins.{}.{}'.format(plugin, plugin))
-            Aya.load_extension('plugins.{}.{}'.format(plugin, plugin))
-            default_extensions.append('plugins.{}.{}'.format(plugin, plugin))
+            Aya.unload_extension('cogs.{}'.format(cogname))
+            default_extensions.remove('cogs.{}'.format(cogname))
+            Aya.load_extension('cogs.{}'.format(cogname))
+            default_extensions.append('cogs.{}'.format(cogname))
+            print('{cogname} has been reloaded.')
         except Exception as e:
             await Aya.say('\N{PISTOL}')
             await Aya.say('{}: {}'.format(type(e).__name__, e))
@@ -75,14 +77,14 @@ async def reload(ctx, *, plugin):
 
 @Aya.command()
 async def ping():
-    """ Testing if the bot is up and working """
+    """ Check if Aya is up and running """
     await Aya.say('Pong!')
 
 
 if __name__ == "__main__":
     for ext in default_extensions:
         Aya.load_extension(ext)
-    print('Default plugins has been loaded.')
+    print('Good to go!')
     print('----------')
 
 Aya.run('')
