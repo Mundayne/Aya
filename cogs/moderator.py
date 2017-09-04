@@ -41,6 +41,13 @@ class Mod:
             await self.Aya.send_message(ctx.message.channel, '{} : You don\'t understand how this place work, do you ?'
                                         .format(ctx.message.author))
 
-
+    @commands.command(pass_context=True)
+    async def getbans(self, ctx, *, server=discord.Server):
+        try:
+            for x in server:
+                await self.Aya.say(str(x))
+        except discord.Forbidden:
+            await self.Aya.send_message(ctx.message.channel, '{} : You don\'t understand how this place work, do you ?'
+                                        .format(ctx.message.author))
 def setup(Aya):
     Aya.add_cog(Mod(Aya))
