@@ -1,6 +1,6 @@
 [![forthebadge***REMOVED***(http://forthebadge.com/images/badges/powered-by-electricity.svg)***REMOVED***(http://forthebadge.com)
-[![forthebadge***REMOVED***(http://forthebadge.com/images/badges/built-with-science.svg)***REMOVED***(http://forthebadge.com)
 [![forthebadge***REMOVED***(http://forthebadge.com/images/badges/made-with-python.svg)***REMOVED***(http://forthebadge.com)
+[![forthebadge***REMOVED***(http://forthebadge.com/images/badges/built-with-science.svg)***REMOVED***(http://forthebadge.com)
 
 # Aya : The discord bot
 Aya is a highly modular general purpose bot that gives you control over your discord server.
