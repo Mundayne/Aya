@@ -1,11 +1,10 @@
 import random
-
 ***REMOVED***
 ***REMOVED***
 
 
 class Invite:
-    """ Aya invite link """
+    """Aya invite link"""
 
     def __init__(self, Aya):
         self.Aya = Aya

@@ -1,12 +1,11 @@
 import random
-
 ***REMOVED***
 import safygiphy
 ***REMOVED***
 
 
 class Gif:
-    """ Gifs """
+    """Gets a random gif"""
 
     def __init__(self, Aya):
         self.Aya = Aya
