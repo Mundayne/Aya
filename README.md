@@ -2,7 +2,7 @@
 [![forthebadge](http://forthebadge.com/images/badges/made-with-python.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/built-with-science.svg)](http://forthebadge.com)
 
-# Aya : The discord bot
+# Aya : The Multi-Purpose Discord Bot
 Aya is a highly modular general purpose bot that gives you control over your discord server.
 
 ### Features: 
@@ -10,7 +10,7 @@ List of supported features:
 - [ ] Auto/Moderation features (Cleaning, AutoCleaning, Ban, Kick, Filter)
 - [ ] Server setup features (Auto setup, template setup)
 - [ ] Music features (Playlists, Queues, Youtube support)
-- [ ] Game features (Lottery, War, Bllackjack, Competitions)
+- [ ] Game features (Lottery, War, Blackjack, Competitions)
 - [ ] User features (Levels, Cash, Reputation)
 - [ ] Custom cogs for developers (Add your own commands)
 - [ ] Tracking features (Tracking specific user activities)
