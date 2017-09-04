@@ -15,6 +15,7 @@ default_extensions = [
     'cogs.gif',
     'cogs.8ball',
     'cogs.userfeatures',
+    'cogs.minigames',
 ]
 
 
@@ -88,4 +89,4 @@ if __name__ == "__main__":
     print('Good to go!')
     print('----------')
 
-Aya.run('MzQ3MzkyNTM3MjA5NjAyMDQ5.DHfLQA.LzWaNOfdZeRxYf-9SJcj7Jk3s78')
+Aya.run('')
