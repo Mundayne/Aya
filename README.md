@@ -10,7 +10,7 @@ List of supported features:
 - [ ] Auto/Moderation features (Cleaning, AutoCleaning, Ban, Kick, Filter)
 - [ ] Server setup features (Auto setup, template setup)
 - [ ] Music features (Playlists, Queues, Youtube support)
-- [ ] Game features (Lottery, War, Bllackjack, Competitions)
+- [ ] Game features (Lottery, War, Blackjack, Competitions)
 - [ ] User features (Levels, Cash, Reputation)
 - [ ] Custom cogs for developers (Add your own commands)
 - [ ] Tracking features (Tracking specific user activities)
