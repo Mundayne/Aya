@@ -1,12 +1,11 @@
 import random
-
 import discord
 import safygiphy
 from discord.ext import commands
 
 
 class Gif:
-    """ Gifs """
+    """Gets a random gif"""
 
     def __init__(self, Aya):
         self.Aya = Aya
