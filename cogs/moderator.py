@@ -37,7 +37,7 @@ class Mod:
             await self.Aya.unban(discord.Server, member)
             await self.Aya.say(random.choice(unbanmsg) % member)
         except discord.Forbidden:
-            await self.Aya.send_message(ctx.message.channel, '{}: You don\'t understand how this place work, do you?'
+            await self.Aya.send_message(ctx.message.channel, '{}: You don\'t understand how this place works, do you?'
                                         .format(ctx.message.author))
 
     @commands.command(pass_context=True)
@@ -46,7 +46,7 @@ class Mod:
             for x in server:
                 await self.Aya.say(str(x))
         except discord.Forbidden:
-            await self.Aya.send_message(ctx.message.channel, '{} : You don\'t understand how this place work, do you ?'
+            await self.Aya.send_message(ctx.message.channel, '{} : You don\'t understand how this place works, do you?'
                                         .format(ctx.message.author))
 def setup(Aya):
     Aya.add_cog(Mod(Aya))
