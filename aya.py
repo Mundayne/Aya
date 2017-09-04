@@ -24,7 +24,7 @@ async def on_ready():
 
 @Aya.command(pass_context=True)
 async def load(ctx, *, cogname):
-    """ loading a cog """
+    """Load a cog"""
     if ctx.message.author == ctx.message.server.owner:
         try:
             Aya.load_extension('cogs.{}'.format(cogname))
@@ -41,7 +41,7 @@ async def load(ctx, *, cogname):
 
 @Aya.command(pass_context=True)
 async def unload(ctx, *, cogname):
-    """ unloading a cog """
+    """Unload a cog"""
     if ctx.message.author == ctx.message.server.owner:
         try:
             Aya.unload_extension('cogs.{}'.format(cogname))
@@ -58,7 +58,7 @@ async def unload(ctx, *, cogname):
 
 @Aya.command(pass_context=True)
 async def reload(ctx, *, cogname):
-    """ reloading a cog """
+    """Reload a cog"""
     if ctx.message.author == ctx.message.server.owner:
         try:
             Aya.unload_extension('cogs.{}'.format(cogname))
@@ -77,7 +77,7 @@ async def reload(ctx, *, cogname):
 
 @Aya.command()
 async def ping():
-    """ Check if Aya is up and running """
+    """Check if Aya is up and running"""
     await Aya.say('Pong!')
 
 
