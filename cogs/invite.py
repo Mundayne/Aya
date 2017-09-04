@@ -1,11 +1,10 @@
 import random
-
 import discord
 from discord.ext import commands
 
 
 class Invite:
-    """ Aya invite link """
+    """Aya invite link"""
 
     def __init__(self, Aya):
         self.Aya = Aya

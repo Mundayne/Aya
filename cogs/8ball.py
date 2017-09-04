@@ -1,18 +1,17 @@
 import random
-
 import discord
 from discord.ext import commands
 
 
 class Ball:
-    """ 8 ball game """
+    """8 ball game"""
 
     def __init__(self, Aya):
         self.Aya = Aya
 
     @commands.command(pass_context=True)
     async def eball(self, ctx, *, yourquestion):
-        """ Let the 8 ball decide your fate """
+        """Let the 8 ball decide your fate"""
         question = yourquestion
         answers = ['It is certain', 'Yes', 'I don\'t know, probably?', 'HELL YEAH!!!', 'Of course',
                    'It isn\'t too certain', 'Doubtful', 'My sources say no',
