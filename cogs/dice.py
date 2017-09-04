@@ -1,5 +1,4 @@
 import random
-
 ***REMOVED***
 ***REMOVED***
 
@@ -16,11 +15,11 @@ class Dice:
         fmt = ''
         for i in range(1, number_of_dice + 1):
             fmt += '`Dice {}: {}`\n'.format(i, random.randint(1, 6))
-            color = ('#%06x' % random.randint(8, 0xFFFFFF))
-            color = int(color[1:***REMOVED***, 16)
-            color = discord.Color(value=color)
-            em = discord.Embed(color=color, title='Roll a certain number of dice', description=fmt)
-            await self.Aya.say(embed=em)
+        color = ('#%06x' % random.randint(8, 0xFFFFFF))
+        color = int(color[1:***REMOVED***, 16)
+        color = discord.Color(value=color)
+        em = discord.Embed(color=color, title='Roll a certain number of dice', description=fmt)
+        await self.Aya.say(embed=em)
 
 
 def setup(Aya):

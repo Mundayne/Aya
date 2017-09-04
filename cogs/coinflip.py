@@ -1,11 +1,10 @@
 import random
-
 ***REMOVED***
 ***REMOVED***
 
 
 class Flip:
-    """ Flips a coin"""
+    """Flips a coin"""
 
     def __init__(self, Aya):
         self.Aya = Aya
