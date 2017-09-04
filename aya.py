@@ -24,7 +24,7 @@
 
 ***REMOVED***
 ***REMOVED***
-    """ loading a cog """
+***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -41,7 +41,7 @@
 
 ***REMOVED***
 ***REMOVED***
-    """ unloading a cog """
+***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -58,7 +58,7 @@
 
 ***REMOVED***
 ***REMOVED***
-    """ reloading a cog """
+***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -77,7 +77,7 @@
 
 ***REMOVED***
 ***REMOVED***
-    """ Check if Aya is up and running """
+***REMOVED***
 ***REMOVED***
 
 
