@@ -30,7 +30,7 @@ class UserFeatures:
             balance += 1000
             await self.Aya.say('{} You earned ${}. Wait 24 hours for your next payday.'.format(author.mention, default_settings['PAYDAY_AMOUNT'***REMOVED***))
 ***REMOVED***
-            await self.Aya.say('{} You don\'t have an account yet. Type `sa.register` to create an account.'.format(author.mention))
+            await self.Aya.say('{} You don\'t have an account yet. Type `a.register` to create an account.'.format(author.mention))
 
     @commands.command(pass_context=True)
     async def balance(self, ctx):
@@ -38,7 +38,7 @@ class UserFeatures:
         if account == True:
             await self.Aya.say('{} Your balance is ' + balance + '.'.format(author.mention))
 ***REMOVED***
-            await self.Aya.say('{} You don\'t have an account yet. Type `sa.register` to create an account.'.format(author.mention))
+            await self.Aya.say('{} You don\'t have an account yet. Type `a.register` to create an account.'.format(author.mention))
 
 
 def setup(Aya):
