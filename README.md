@@ -10,7 +10,7 @@ List of supported features:
 - [ ***REMOVED*** Auto/Moderation features (Cleaning, AutoCleaning, Ban, Kick, Filter)
 - [ ***REMOVED*** Server setup features (Auto setup, template setup)
 - [ ***REMOVED*** Music features (Playlists, Queues, Youtube support)
-- [ ***REMOVED*** Game features (Lottery, War, Bllackjack, Competitions)
+- [ ***REMOVED*** Game features (Lottery, War, Blackjack, Competitions)
 - [ ***REMOVED*** User features (Levels, Cash, Reputation)
 - [ ***REMOVED*** Custom cogs for developers (Add your own commands)
 - [ ***REMOVED*** Tracking features (Tracking specific user activities)
