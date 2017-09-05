@@ -14,6 +14,7 @@ List of supported features:
 - [ ***REMOVED*** User features (Levels, Cash, Reputation)
 - [ ***REMOVED*** Custom cogs for developers (Add your own commands)
 - [ ***REMOVED*** Tracking features (Tracking specific user activities)
+- [ ***REMOVED*** Misc (Dice, Flip a Coin, GIFs, 8 Ball, Invite Link)
 
 ### Maintainers:
 Official maintainers are chosen by [@TheOxilium***REMOVED***(https://twitter.com/TheOxilium):
@@ -23,7 +24,7 @@ Official maintainers are chosen by [@TheOxilium***REMOVED***(https://twitter.com
 ### Contributors:
 *Earn a special status in the official server and get acknowledged for your efforts!*
 
-To become a **contributor**, join [the server***REMOVED***(https://discord.gg/uQ4w2a5) and talk to the main maintainer.
+To become a **contributor**, join [the discord server***REMOVED***(https://discord.gg/uQ4w2a5) and talk to the main maintainer.
 
 ### Join Us:
-Join [the official server***REMOVED***(https://discord.gg/uQ4w2a5) and say hi!
+Join [the official discord server***REMOVED***(https://discord.gg/uQ4w2a5) and say hi!
