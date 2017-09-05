@@ -20,7 +20,10 @@ class Invite:
                            footer='Aya',
                            description='[Click here***REMOVED***(https://discordapp.com/api/oauth2/authorize?client_id={}&scope=bot&permissions=8)'
                            .format(self.Aya.user.id))
-        await self.Aya.say(embed=em)
+***REMOVED***
+            await self.Aya.say(embed=em)
+        except discord.HTTPException:
+            await self.Aya.say('I need the embed links permission to send this.')
 
 
 def setup(Aya):
