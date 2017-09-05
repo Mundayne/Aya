@@ -35,7 +35,7 @@ async def load(ctx, *, cogname):
         try:
             Aya.load_extension('cogs.{}'.format(cogname))
             default_extensions.append('cogs.{}'.format(cogname))
-            print('{cogname} has been loaded.')
+            print('{} has been loaded.'.format(cogname))
         except Exception as e:
             await Aya.say('\N{PISTOL}')
             await Aya.say('{}: {}'.format(type(e).__name__, e))
@@ -52,7 +52,7 @@ async def unload(ctx, *, cogname):
         try:
             Aya.unload_extension('cogs.{}'.format(cogname))
             default_extensions.remove('cogs.{}'.format(cogname))
-            print('{cogname} has been unloaded.')
+            print('{} has been unloaded.'.format(cogname))
         except Exception as e:
             await Aya.say('\N{PISTOL}')
             await Aya.say('{}: {}'.format(type(e).__name__, e))
@@ -71,7 +71,7 @@ async def reload(ctx, *, cogname):
             default_extensions.remove('cogs.{}'.format(cogname))
             Aya.load_extension('cogs.{}'.format(cogname))
             default_extensions.append('cogs.{}'.format(cogname))
-            print('{cogname} has been reloaded.')
+            print('{} has been reloaded.'.format(cogname))
         except Exception as e:
             await Aya.say('\N{PISTOL}')
             await Aya.say('{}: {}'.format(type(e).__name__, e))
