@@ -23,6 +23,10 @@ default_extensions = [
 async def on_ready():
     print('Aya is ready! \n User : {} \n ID : {}'.format(Aya.user.name, Aya.user.id))
 
+@Aya.command(pass_context=True)
+async def cogs(ctx):
+    """To show the names of the cogs"""
+    await Aya.say('`help`, `invite`, `moderator`, `coinflip`, `dice`, `gif`, `8ball`, `userfeatures`, `minigames`')
 
 @Aya.command(pass_context=True)
 async def load(ctx, *, cogname):
