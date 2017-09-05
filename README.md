@@ -14,6 +14,7 @@ List of supported features:
 - [ ***REMOVED*** User features (Levels, Cash, Reputation)
 - [ ***REMOVED*** Custom cogs for developers (Add your own commands)
 - [ ***REMOVED*** Tracking features (Tracking specific user activities)
+- [ ***REMOVED*** Misc (Dice, Flip a Coin, GIFs, 8 Ball, Invite Link)
 
 ### Maintainers:
 Official maintainers are chosen by [@TheOxilium***REMOVED***(https://twitter.com/TheOxilium):
