@@ -6,6 +6,7 @@ Aya.remove_command('help')
 
 client = discord.Client()
 
+
 default_extensions = [
     'cogs.help',
     'cogs.invite',
@@ -93,4 +94,4 @@ if __name__ == "__main__":
     print('Good to go!')
     print('----------')
 
-Aya.run('')
+Aya.run('MzQ3MzkyNTM3MjA5NjAyMDQ5.DHfLQA.LzWaNOfdZeRxYf-9SJcj7Jk3s78')
