@@ -21,7 +21,7 @@ class Help:
          a.unban <name>: Unban someone
          
          ---- PLUGINS ----
-         
+         a.cogs: Shows the list of cogs that you can load and unload
          a.load: Load a plugin
          a.reload: Reload a plugin
          a.unload: Unload a plugin
@@ -30,9 +30,9 @@ class Help:
          
          a.gif <tag>: Get a random gif
          a.war: Play a game of war
-         a.dice: Roll a certain number of dice
+         a.dice <number of dice>: Roll a certain number of dice
          a.coinflip: Flip a coin
-         a.eball: Let the 8 ball decide your fate
+         a.8ball <question>: Let the 8 ball decide your fate
          ```
         """)
 
