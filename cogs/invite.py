@@ -12,6 +12,7 @@ class Invite:
     @commands.command()
     async def invite(self):
         """ Use this link to add Aya to your server! """
+        serv_owner = ctx.message.server.owner
         color = ('#%06x' % random.randint(8, 0xFFFFFF))
         color = int(color[1:***REMOVED***, 16)
         color = discord.Color(value=color)
@@ -23,7 +24,7 @@ class Invite:
 ***REMOVED***
             await self.Aya.say(embed=em)
         except discord.HTTPException:
-            await self.Aya.say('I need the embed links permission to send this.')
+            await self.Aya.say('{} I need the embed links permission to send this.'.format(serv_owner.mention))
 
 
 def setup(Aya):
