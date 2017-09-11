@@ -4,9 +4,6 @@ from discord.ext import commands
 Aya = commands.Bot('a.')
 Aya.remove_command('help')
 
-client = discord.Client()
-
-
 default_extensions = [
     'cogs.help',
     'cogs.invite',
