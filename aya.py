@@ -26,8 +26,10 @@ async def on_ready():
 
 @Aya.command(pass_context=True)
 async def cogs(ctx):
-    """To show the names of the cogs"""
-    await Aya.say('`help`, `invite`, `moderator`, `coinflip`, `dice`, `gif`, `8ball`, `userfeatures`, `minigames`')
+    """A better way to show the names of the cogs"""
+    await Aya.say('cogs : ')
+    for cog in default_extensions:
+        await Aya.say(cog)
 
 @Aya.command(pass_context=True)
 async def load(ctx, *, cogname):
