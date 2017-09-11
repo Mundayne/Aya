@@ -26,13 +26,19 @@ class Help:
          a.reload: Reload a plugin
          a.unload: Unload a plugin
          
-         ---- ENTERTAINMENT ---
+         ---- ENTERTAINMENT ----
          
          a.gif <tag>: Get a random gif
          a.war: Play a game of war
          a.dice <number of dice>: Roll a certain number of dice
          a.coinflip: Flip a coin
          a.8ball <question>: Let the 8 ball decide your fate
+         a.lottery: Enter in the lottery
+         
+         ---- ECONOMY ----
+         
+         a.register: Register an account in the bank
+         a.balance: Check your account balance
          ```
         """)
 

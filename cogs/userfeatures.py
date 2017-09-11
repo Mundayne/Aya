@@ -1,9 +1,6 @@
-import random
 import discord
 from discord.ext import commands
-from datetime import datetime
-import time
-import os
+import datetime
 import json
 
 
@@ -25,6 +22,8 @@ class UserFeatures:
         if user_id not in data:
             user = {'user': user_id, 'guild': guild_id, 'money': 200}
             data[user_id] = user
+            global pdcollect
+            pdcollect = False
             await self.Aya.say('Registration complete. Balance: $200')
         else:
             await self.Aya.say('You already have an account.')
@@ -45,6 +44,17 @@ class UserFeatures:
             await self.Aya.say(embed=em)
         except discord.HTTPException:
             await self.Aya.say('{} I need the embed links permission to send this.'.format(serv_owner.mention))
+
+    @commands.command(pass_context=True)
+    async def payday(self, ctx):
+        user_id = str(ctx.message.author.id)
+        with open('data/bankholders.json', 'r') as f:
+            data = json.loads(f.read())
+        global pdcollect
+        if pdcollect == False:
+            pdcollect = True
+        else:
+            pass
 
 
 def setup(Aya):
