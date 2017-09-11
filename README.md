@@ -24,7 +24,7 @@ Official maintainers are chosen by [@TheOxilium***REMOVED***(https://twitter.com
 ### Contributors:
 *Earn a special status in the official server and get acknowledged for your efforts!*
 
-To become a **contributor**, join [the discord server***REMOVED***(https://discord.gg/uQ4w2a5) and talk to the main maintainer.
+To become a **contributor**, join [the discord server***REMOVED***(https://discord.gg/PuScp9K) and talk to Oxilium#5477.
 
 ### Join Us:
-Join [the official discord server***REMOVED***(https://discord.gg/uQ4w2a5) and say hi!
+Join [the official discord server***REMOVED***(https://discord.gg/PuScp9K) to contribute to Aya and be the first to beta test it!
