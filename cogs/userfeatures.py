@@ -28,7 +28,7 @@ class UserFeatures:
         if user_id not in data:
             account = {
                 'guild': guild_id,
-                'payday': datetime.datetime.utcnow()
+                'payday': datetime.datetime.utcnow(),
                 'money': self.DEFAULT_BALANCE
             }
             
