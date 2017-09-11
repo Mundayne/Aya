@@ -7,6 +7,7 @@ import json
 class UserFeatures:
     USER_FILE = "data/bankholders.json"
     DEFAULT_BALANCE = 200
+    DEFAULT_PAYDAY = 100
     
     def __init__(self, Aya):
         self.Aya = Aya
@@ -45,8 +46,9 @@ class UserFeatures:
     async def balance(self, ctx):
         # get account info
         user_id = str(ctx.message.author.id)
+        serv_owner = ctx.message.server.owner
         if user_id not in self.data:
-            return await self.Aya.say('You dont have an account, please register')
+            return await self.Aya.say('You don\'t have an account, please register using `a.register`')
         account = self.data[user_id]
         
         # create embed
@@ -64,15 +66,19 @@ class UserFeatures:
         # get account details
         user_id = str(ctx.message.author.id)
         if user_id not in self.data:
-            return await self.Aya.say('You dont have an account, please register')
+            return await self.Aya.say('You don\'t have an account, please register using `a.register`.')
         account = self.data[user_id]
         
         # check if its payday for the user
         now = datetime.datetime.utcnow()
         if (now - account['payday']) > datetime.timedelta(1):
-            await self.Aya.say('Its payday!')
+            await self.Aya.say('Its payday! You received %d' % self.DEFAULT_PAYDAY)
             account['payday'] = now
+            account['money'] += self.DEFAULT_PAYDAY
             self.save()
+        else:
+            time_left = now - account['payday']
+            await self.Aya.say('You still have ' + time_left + ' until your next payday.')
 
 def setup(Aya):
     Aya.add_cog(UserFeatures(Aya))
