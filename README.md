@@ -23,6 +23,7 @@ Official maintainers are chosen by [@TheOxilium](https://twitter.com/TheOxilium)
 
 ### Contributors:
 *Earn a special status in the official server and get acknowledged for your efforts!*
+- [Drinka](https://github.com/Drinka)
 
 To become a **contributor**, join [the discord server](https://discord.gg/PuScp9K) and talk to Oxilium#5477.
 
