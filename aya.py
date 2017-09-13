@@ -13,10 +13,11 @@ default_extensions = [
     'cogs.moderator',
     'cogs.coinflip',
     'cogs.dice',
-    'cogs.gif',
+    #'cogs.gif',
     'cogs.8ball',
     'cogs.userfeatures',
     'cogs.minigames',
+    'cogs.blacklist',
 ]
 
 
@@ -96,4 +97,4 @@ if __name__ == "__main__":
     print('Good to go!')
     print('----------')
 
-Aya.run('')
+Aya.run('MzU2ODcyMTQwMDcyNjgxNDc0.DJhqxw.YdVE2cuY43To7Zyutz4vu4zPXZk')
