@@ -1,5 +1,5 @@
-***REMOVED***
-***REMOVED***
+import discord
+from discord.ext import commands
 import datetime
 import json
 
@@ -21,26 +21,26 @@ class UserFeatures:
         # if not in data, give money to start off
         if user_id not in data:
             user = {'user': user_id, 'guild': guild_id, 'money': 200}
-            data[user_id***REMOVED*** = user
+            data[user_id] = user
             global pdcollect
             pdcollect = False
             await self.Aya.say('Registration complete. Balance: $200')
-***REMOVED***
+        else:
             await self.Aya.say('You already have an account.')
 
         # save that data back to the database
         with open('data/bankholders.json', 'w') as f:
             f.write(json.dumps(data, indent=4))
 
-    @commands.command(pass_context=True, aliases=['bal'***REMOVED***)
+    @commands.command(pass_context=True, aliases=['bal'])
     async def balance(self, ctx):
         user_id = str(ctx.message.author.id)
         with open('data/bankholders.json', 'r') as f:
             data = json.loads(f.read())
         em = discord.Embed(title='Balance', color=0x2ECC71)
         em.add_field(name='Account Holder', value=ctx.message.author)
-        em.add_field(name='Account Balance', value=data[user_id***REMOVED***['money'***REMOVED***)
-***REMOVED***
+        em.add_field(name='Account Balance', value=data[user_id]['money'])
+        try:
             await self.Aya.say(embed=em)
         except discord.HTTPException:
             await self.Aya.say('{} I need the embed links permission to send this.'.format(serv_owner.mention))
@@ -53,7 +53,7 @@ class UserFeatures:
         global pdcollect
         if pdcollect == False:
             pdcollect = True
-***REMOVED***
+        else:
             pass
 
 

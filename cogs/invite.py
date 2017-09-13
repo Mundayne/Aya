@@ -1,6 +1,6 @@
 import random
-***REMOVED***
-***REMOVED***
+import discord
+from discord.ext import commands
 
 
 class Invite:
@@ -14,14 +14,14 @@ class Invite:
         """ Use this link to add Aya to your server! """
         serv_owner = ctx.message.server.owner
         color = ('#%06x' % random.randint(8, 0xFFFFFF))
-        color = int(color[1:***REMOVED***, 16)
+        color = int(color[1:], 16)
         color = discord.Color(value=color)
         em = discord.Embed(color=color,
                            title='Invite me to your server!',
                            footer='Aya',
-                           description='[Click here***REMOVED***(https://discordapp.com/api/oauth2/authorize?client_id={}&scope=bot&permissions=8)'
+                           description='[Click here](https://discordapp.com/api/oauth2/authorize?client_id={}&scope=bot&permissions=8)'
                            .format(self.Aya.user.id))
-***REMOVED***
+        try:
             await self.Aya.say(embed=em)
         except discord.HTTPException:
             await self.Aya.say('{} I need the embed links permission to send this.'.format(serv_owner.mention))

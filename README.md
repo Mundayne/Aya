@@ -1,30 +1,30 @@
-[![forthebadge***REMOVED***(http://forthebadge.com/images/badges/powered-by-electricity.svg)***REMOVED***(http://forthebadge.com)
-[![forthebadge***REMOVED***(http://forthebadge.com/images/badges/made-with-python.svg)***REMOVED***(http://forthebadge.com)
-[![forthebadge***REMOVED***(http://forthebadge.com/images/badges/built-with-science.svg)***REMOVED***(http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/made-with-python.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/built-with-science.svg)](http://forthebadge.com)
 
 # Aya : The Multi-Purpose Discord Bot
 Aya is a highly modular general purpose bot that gives you control over your discord server.
 
 ### Features: 
 List of supported features:
-- [ ***REMOVED*** Auto/Moderation features (Cleaning, AutoCleaning, Ban, Kick, Filter)
-- [ ***REMOVED*** Server setup features (Auto setup, template setup)
-- [ ***REMOVED*** Music features (Playlists, Queues, Youtube support)
-- [ ***REMOVED*** Game features (Lottery, War, Blackjack, Competitions)
-- [ ***REMOVED*** User features (Levels, Cash, Reputation)
-- [ ***REMOVED*** Custom cogs for developers (Add your own commands)
-- [ ***REMOVED*** Tracking features (Tracking specific user activities)
-- [ ***REMOVED*** Misc (Dice, Flip a Coin, GIFs, 8 Ball, Invite Link)
+- [ ] Auto/Moderation features (Cleaning, AutoCleaning, Ban, Kick, Filter)
+- [ ] Server setup features (Auto setup, template setup)
+- [ ] Music features (Playlists, Queues, Youtube support)
+- [ ] Game features (Lottery, War, Blackjack, Competitions)
+- [ ] User features (Levels, Cash, Reputation)
+- [ ] Custom cogs for developers (Add your own commands)
+- [ ] Tracking features (Tracking specific user activities)
+- [ ] Misc (Dice, Flip a Coin, GIFs, 8 Ball, Invite Link)
 
 ### Maintainers:
-Official maintainers are chosen by [@TheOxilium***REMOVED***(https://twitter.com/TheOxilium):
-- [Oxilium***REMOVED***(https://github.com/TheOxilium)
-- [Jason***REMOVED***(https://github.com/charadox) 
+Official maintainers are chosen by [@TheOxilium](https://twitter.com/TheOxilium):
+- [Oxilium](https://github.com/TheOxilium)
+- [Jason](https://github.com/charadox) 
 
 ### Contributors:
 *Earn a special status in the official server and get acknowledged for your efforts!*
 
-To become a **contributor**, join [the discord server***REMOVED***(https://discord.gg/PuScp9K) and talk to Oxilium#5477.
+To become a **contributor**, join [the discord server](https://discord.gg/PuScp9K) and talk to Oxilium#5477.
 
 ### Join Us:
-Join [the official discord server***REMOVED***(https://discord.gg/PuScp9K) to contribute to Aya and be the first to beta test it!
+Join [the official discord server](https://discord.gg/PuScp9K) to contribute to Aya and be the first to beta test it!

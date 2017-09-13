@@ -1,25 +1,25 @@
-***REMOVED***
+import discord
 import random
-***REMOVED***
+from discord.ext import commands
 import asyncio
 
 class Minigames:
     def __init__(self, Aya):
         self.Aya = Aya
-    @commands.command(pass_context=True, aliases=['lotto'***REMOVED***)
+    @commands.command(pass_context=True, aliases=['lotto'])
     async def lottery(self, ctx):
         '''Enter the lottery and see if you win'''
         author = ctx.message.author
-        numbers = [***REMOVED***
+        numbers = []
         for x in range(3):
             numbers.append(random.randint(1, 5))
         print (numbers)
         await self.Aya.say('Choose 3 numbers between 1 and 5 and separate each number with a space.')
         msg = await self.Aya.wait_for_message(timeout=30, author=ctx.message.author, channel=ctx.message.channel)
-        string_numbers = [str(i) for i in numbers***REMOVED***
-        if (msg.content[0***REMOVED*** == string_numbers[0***REMOVED***) and (msg.content[2***REMOVED*** == string_numbers[1***REMOVED***) and (msg.content[4***REMOVED*** == string_numbers[2***REMOVED***):
+        string_numbers = [str(i) for i in numbers]
+        if (msg.content[0] == string_numbers[0]) and (msg.content[2] == string_numbers[1]) and (msg.content[4] == string_numbers[2]):
             await self.Aya.say('{} You won! Congratulations on winning the lottery!'.format(author.mention))
-***REMOVED***
+        else:
             await self.Aya.say('{} Too bad... You were the 124/125 who lost the lottery...\nThe numbers were '.format(author.mention) + ', '.join(string_numbers))
 
     @commands.command(pass_context=True)
@@ -43,24 +43,24 @@ class Minigames:
             await self.Aya.edit_message(msg, 'Shuffling the cards...\n'
                                         'Dealing...\n'
                                         '------{}------\n'.format(member.name) +
-                                   '`Player: ' + cards[player***REMOVED*** + '`\n'
-                                                                 '`Dealer: ' + cards[dealer***REMOVED*** + '`\n'
+                                   '`Player: ' + cards[player] + '`\n'
+                                                                 '`Dealer: ' + cards[dealer] + '`\n'
                                                                                                'You won!')
         elif int(player) < int(dealer):
             asyncio.sleep(1)
             await self.Aya.edit_message(msg, 'Shuffling the cards...\n'
                                         'Dealing...\n'
                                         '------{}------\n'.format(member.name) +
-                                   '`Player: ' + cards[player***REMOVED*** + '`\n'
-                                                                 '`Dealer: ' + cards[dealer***REMOVED*** + '`\n'
+                                   '`Player: ' + cards[player] + '`\n'
+                                                                 '`Dealer: ' + cards[dealer] + '`\n'
                                                                                                'You lost...')
-***REMOVED***
+        else:
             asyncio.sleep(1)
             await self.Aya.edit_message(msg, 'Shuffling the cards...\n'
                                         'Dealing...\n'
                                         '------{}------\n'.format(member.name) +
                                    'Both you and the dealer drawed a ' + cards[
-                                       player***REMOVED*** + '. War function coming soon...')
+                                       player] + '. War function coming soon...')
             player2 = random.randint(2, 14)
             player3 = random.randint(2, 14)
             player4 = random.randint(2, 14)
@@ -72,33 +72,33 @@ class Minigames:
                 await self.Aya.edit_message(msg, 'Shuffling the cards...\n'
                                             'Dealing...\n'
                                             '------{}------\n'.format(member.name) +
-                                       '`Player: ' + cards[player***REMOVED*** + '`, ' + cards[player2***REMOVED*** + ', ' + cards[
-                                           player3***REMOVED*** + ', `Deciding Card: ' + cards[player4***REMOVED*** + '`\n'
+                                       '`Player: ' + cards[player] + '`, ' + cards[player2] + ', ' + cards[
+                                           player3] + ', `Deciding Card: ' + cards[player4] + '`\n'
                                                                                               '`Dealer: ' + cards[
-                                           dealer***REMOVED*** + '`, ' + cards[dealer2***REMOVED*** + ', ' + cards[
-                                           dealer3***REMOVED*** + ', `Deciding Card: ' + cards[dealer4***REMOVED*** + '`\n'
+                                           dealer] + '`, ' + cards[dealer2] + ', ' + cards[
+                                           dealer3] + ', `Deciding Card: ' + cards[dealer4] + '`\n'
                                                                                               'You won!')
             elif int(player4) < int(dealer4):
                 asyncio.sleep(1)
                 await self.Aya.edit_message(msg, 'Shuffling the cards...\n'
                                             'Dealing...\n'
                                             '------{}------\n'.format(member.name) +
-                                       '`Player: ' + cards[player***REMOVED*** + '`, ' + cards[player2***REMOVED*** + ', ' + cards[
-                                           player3***REMOVED*** + ', `Deciding Card: ' + cards[player4***REMOVED*** + '`\n'
+                                       '`Player: ' + cards[player] + '`, ' + cards[player2] + ', ' + cards[
+                                           player3] + ', `Deciding Card: ' + cards[player4] + '`\n'
                                                                                               '`Dealer: ' + cards[
-                                           dealer***REMOVED*** + '`, ' + cards[dealer2***REMOVED*** + ', ' + cards[
-                                           dealer3***REMOVED*** + ', `Deciding Card: ' + cards[dealer4***REMOVED*** + '`\n'
+                                           dealer] + '`, ' + cards[dealer2] + ', ' + cards[
+                                           dealer3] + ', `Deciding Card: ' + cards[dealer4] + '`\n'
                                                                                               'You lost...')
-    ***REMOVED***
+            else:
                 asyncio.sleep(1)
                 await self.Aya.edit_message(msg, 'Shuffling the cards...\n'
                                             'Dealing...\n'
                                             '------{}------\n'.format(member.name) +
-                                       '`Player: ' + cards[player***REMOVED*** + '`, ' + cards[player2***REMOVED*** + ', ' + cards[
-                                           player3***REMOVED*** + ', `Deciding Card: ' + cards[player4***REMOVED*** + '`\n'
+                                       '`Player: ' + cards[player] + '`, ' + cards[player2] + ', ' + cards[
+                                           player3] + ', `Deciding Card: ' + cards[player4] + '`\n'
                                                                                               '`Dealer: ' + cards[
-                                           dealer***REMOVED*** + '`, ' + cards[dealer2***REMOVED*** + ', ' + cards[
-                                           dealer3***REMOVED*** + ', `Deciding Card: ' + cards[dealer4***REMOVED*** + '`\n'
+                                           dealer] + '`, ' + cards[dealer2] + ', ' + cards[
+                                           dealer3] + ', `Deciding Card: ' + cards[dealer4] + '`\n'
                                                                                               'It\'s a tie.')
 
 def setup(Aya):

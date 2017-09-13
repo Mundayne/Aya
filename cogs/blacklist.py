@@ -1,7 +1,7 @@
 import asyncio
 
-***REMOVED***
-***REMOVED***
+import discord
+from discord.ext import commands
 import json
 
 global data
@@ -25,13 +25,13 @@ class Blacklist:
         #     data = json.loads(f.read())
         word = word.lower()
         data.setdefault(ctx.message.server.id, {})
-        if word not in data[ctx.message.server.id***REMOVED***:
-            data[ctx.message.server.id***REMOVED***.setdefault(word, ctx.message.author.id)
+        if word not in data[ctx.message.server.id]:
+            data[ctx.message.server.id].setdefault(word, ctx.message.author.id)
             self.Aya.say(data)
             with open('data/blacklist.json', 'w') as f:
                 f.write(json.dumps(data, indent=4))
             await self.Aya.say(word + " has been blacklisted.")
-***REMOVED***
+        else:
             await self.Aya.say(word + " is already blacklisted.")
 
     @blacklist.command(pass_context=True)
@@ -40,12 +40,12 @@ class Blacklist:
         # with open('data/blacklist.json', 'r') as f:
         #     data = json.loads(f.read())
         word = word.lower()
-        if word in data[ctx.message.server.id***REMOVED***:
-            del data[ctx.message.server.id***REMOVED***[word***REMOVED***
+        if word in data[ctx.message.server.id]:
+            del data[ctx.message.server.id][word]
             with open('data/blacklist.json', 'w') as f:
                 f.write(json.dumps(data, indent=4))
             await self.Aya.say(word + " has been successfully removed from the blacklist.")
-***REMOVED***
+        else:
             await self.Aya.say(word + " is not blacklisted.")
 
     @blacklist.command(pass_context=True)
@@ -53,8 +53,8 @@ class Blacklist:
         """Lists current blacklisted words"""
         # with open('data/blacklist.json', 'r') as f:
         #     data = json.loads(f.read())
-        keylist = [***REMOVED***
-        for key in data[ctx.message.server.id***REMOVED***.keys():
+        keylist = []
+        for key in data[ctx.message.server.id].keys():
             keylist.append(key)
         keylist = ', '.join(keylist)
         await self.Aya.say('Blacklisted words: \n`' + keylist + '`')
@@ -62,12 +62,12 @@ class Blacklist:
     async def on_message(self, message):
         if message.author.id == self.Aya.user.id:
             return
-***REMOVED***
+        else:
             if message.server.id in data:
                 words = list(map(lambda z: z.lower(), message.content.split()))
-                for word in data[message.server.id***REMOVED***:
+                for word in data[message.server.id]:
                     if word in words:
-                ***REMOVED***
+                        try:
                             await self.Aya.delete_message(message)
                             msg = await self.Aya.send_message(message.channel,
                                                               "Watch your language {}! ".format(message.author.mention))
@@ -78,9 +78,9 @@ class Blacklist:
                             await self.Aya.send_message(message.channel, "I tried to delete {}'s message,"
                                                                          " but I need permissions to delete messages.".format(message.author.mention))
                             return
-            ***REMOVED***
+                    else:
                         pass
-    ***REMOVED***
+            else:
                 return
 
 
