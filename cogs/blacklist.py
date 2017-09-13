@@ -65,6 +65,7 @@ class Blacklist:
             await self.Aya.say('You must add a word to the blacklist before invoking this command.')
 
     async def on_message(self, message):
+        serv_owner = ctx.message.server.owner
         if message.author.id == self.Aya.user.id:
             return
         else:
@@ -81,8 +82,8 @@ class Blacklist:
                                 await self.Aya.delete_message(msg)
                                 return
                             except discord.Forbidden:
-                                await self.Aya.send_message(message.channel, "I tried to delete {}'s message,"
-                                                                             " but I need permissions to delete messages.".format(message.author.mention))
+                                await self.Aya.send_message(message.channel, "{} I tried to delete {}'s message,"
+                                                                             " but I need permissions to delete messages.".format(serv_owner.mention, message.author.mention)
                                 return
                         else:
                             pass
