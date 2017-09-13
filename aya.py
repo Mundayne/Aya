@@ -13,7 +13,7 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-    #'cogs.gif',
+***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
