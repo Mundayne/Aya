@@ -13,7 +13,7 @@ default_extensions = [
     'cogs.moderator',
     'cogs.coinflip',
     'cogs.dice',
-    #'cogs.gif',
+    'cogs.gif',
     'cogs.8ball',
     'cogs.userfeatures',
     'cogs.minigames',
