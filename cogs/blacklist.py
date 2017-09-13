@@ -29,7 +29,6 @@ class Blacklist:
         data.setdefault(ctx.message.server.id, {})
         if word not in data[ctx.message.server.id]:
             data[ctx.message.server.id].setdefault(word, ctx.message.author.id)
-            self.Aya.say(data)
             with open('data/blacklist.json', 'w') as f:
                 f.write(json.dumps(data, indent=4))
             await self.Aya.say(word + " has been blacklisted.")
