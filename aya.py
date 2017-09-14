@@ -14,6 +14,7 @@ default_extensions = [
     'cogs.8ball',
     'cogs.userfeatures',
     'cogs.minigames',
+    'cogs.blacklist',
 ]
 
 
