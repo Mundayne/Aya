@@ -25,10 +25,11 @@ class UserFeatures:
         guild_id = str(ctx.message.server.id)
 
         # if user not registered, create an account
-        if user_id not in data:
+        if user_id not in self.data:
+            current_time = datetime.datetime.utcnow()
             account = {
                 'guild': guild_id,
-                'payday': datetime.datetime.utcnow(),
+                'payday': current_time,
                 'money': self.DEFAULT_BALANCE
             }
             
