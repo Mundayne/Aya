@@ -56,8 +56,8 @@ class Misc:
         except discord.HTTPException:
             await self.Aya.say('{} I need the embed links permission to send this.'.format(serv_owner.mention))
 
-    @commands.command(pass_context=True, aliases=['flipcoin'])
-    async def coinflip(self, ctx):
+    @commands.command(pass_context=True, aliases=['coinflip'])
+    async def flipcoin(self, ctx):
         """Flips a coin"""
         serv_owner = ctx.message.server.owner
         choices = ['You got Heads', 'You got Tails']
@@ -70,8 +70,8 @@ class Misc:
         except discord.HTTPException:
             await self.Aya.say('{} I need the embed links permission to send this.'.format(serv_owner.mention))
 
-    @commands.command(pass_context=True, aliases=['8ball', 'ball8'])
-    async def eball(self, ctx, *, yourquestion):
+    @commands.command(pass_context=True, aliases=['8ball', 'eball'])
+    async def ball8(self, ctx, *, yourquestion):
         """Let the 8 ball decide your fate"""
         serv_owner = ctx.message.server.owner
         question = yourquestion

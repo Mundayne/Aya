@@ -17,7 +17,7 @@ class Mod:
     @commands.command(pass_context=True)
     async def kick(self, ctx, *, member):
         """Kicks someone out of the server"""
-        kickmsg = ['Poor %s is out!', 'These people don\'t understand!', 'Seeya %s!']
+        kickmsg = ['Poor %s is out!', 'These people don\'t understand!', 'Cya %s!']
         try:
             await self.Aya.kick(member)
             await self.Aya.say(random.choice(kickmsg) % member)
@@ -26,84 +26,108 @@ class Mod:
                                         .format(ctx.message.author))
 
     @commands.command(pass_context=True)
-    async def ban(self, ctx, *, member):
-        banmsg = ['We won\'t see %s again!', 'These people really really don\'t understand', 'See you never %s!']
+    async def ban(self, ctx, member: discord.Member):
+        '''Ban someone from the server.'''
         try:
-            await self.Aya.ban(member, delete_message_days=1)
-            await self.Aya.say(random.choice(banmsg) % member)
-        except discord.Forbidden:
-            await self.Aya.send_message(ctx.message.channel, '{}: Who do you really think you are?'
-                                        .format(ctx.message.author))
+            await self.Aya.ban(member)
+            await self.Aya.say('Banned {} from the server.'.format(member))
+        except:
+            await self.Aya.say('You don\'t have the permission to ban members.')
+
+
+    def find_user(self, bans, member):
+        return [user for user in bans if user.id == member or user.name.lower() == member.lower()]
+
+    async def _unban(self, ctx, server, user):
+        try:
+            await self.Aya.unban(server, user)
+            await self.Aya.say('Unbanned {} from the server.'.format(user))
+        except:
+            await self.Aya.say('You don\'t have the permission to unban members.')
 
     @commands.command(pass_context=True)
-    async def unban(self, ctx, *, member):
-        unbanmsg = ['%s is back from hell!', 'Welcome back! %s']
+    async def unban(self, ctx, member: str):
+        '''Unban someone using their user ID or name.'''
+        server = ctx.message.server
         try:
-            await self.Aya.unban(discord.Server, member)
-            await self.Aya.say(random.choice(unbanmsg) % member)
-        except discord.Forbidden:
-            await self.Aya.send_message(ctx.message.channel, '{}: You don\'t understand how this place works, do you?'
-                                        .format(ctx.message.author))
+            bans = await self.Aya.get_bans(server)
+        except:
+            await self.Aya.say('You don\'t have the permission to see the bans.')
+            return
+
+        users = self.find_user(bans, member)
+        print(users)
+        print([user.name for user in bans])
+
+        if len(users) > 1:
+            return await self.Aya.say('Multiple users found.')
+        if len(users) < 1:
+            return await self.Aya.say('User not found.')
+
+        await self._unban(ctx, server, users[0])
 
     @commands.command(pass_context=True)
-    async def getbans(self, ctx, *, server=discord.Server):
+    async def bans(self, ctx):
+        '''See a list of banned users.'''
+        server = ctx.message.server
         try:
-            for x in server:
-                await self.Aya.say(str(x))
-        except discord.Forbidden:
-            await self.Aya.send_message(ctx.message.channel, '{} : You don\'t understand how this place works, do you?'
-                                        .format(ctx.message.author))
+            bans = await self.Aya.get_bans(server)
+        except:
+            await self.Aya.say('You don\'t have the permission to see the bans.')
+        else:
+            await self.Aya.say('**List of banned users:**```bf\n{}\n```'.format(
+                ', '.join([str(u) for u in bans])))
 
     @commands.group(pass_context=True, invoke_without_command=True)
     @commands.has_permissions(manage_server=True)
-    async def blacklist(self, ctx):
-        """Blacklists a word from the server"""
-        self.Aya.say('Available arguments: \n```a.blacklist add <word>: Adds a word to the blacklist'
-                     '\na.blacklist remove <word>: Removes a word from the blacklist.'
-                     '\na.blacklist list: Lists currently blacklisted words.')
+    async def filter(self, ctx):
+        """Filters a word from the server"""
+        self.Aya.say('Available arguments: \n```a.blacklist add <word>: Adds a word to the filter list'
+                     '\na.blacklist remove <word>: Removes a word from the filter list.'
+                     '\na.blacklist list: Lists current filtered words.')
 
-    @blacklist.command(pass_context=True)
+    @filter.command(pass_context=True)
     @commands.has_permissions(manage_server=True)
     async def add(self, ctx, word: str):
-        """Adds a word the blacklist"""
+        """Adds a word the filter list"""
         word = word.lower()
         data.setdefault(ctx.message.server.id, {})
         if word not in data[ctx.message.server.id]:
             data[ctx.message.server.id].setdefault(word, ctx.message.author.id)
             with open('data/blacklist.json', 'w') as f:
                 f.write(json.dumps(data, indent=4))
-            await self.Aya.say(word + " has been blacklisted.")
+            await self.Aya.say(word + " has been filtered.")
         else:
-            await self.Aya.say(word + " is already blacklisted.")
+            await self.Aya.say(word + " is already filtered.")
 
-    @blacklist.command(pass_context=True)
+    @filter.command(pass_context=True)
     @commands.has_permissions(manage_server=True)
     async def remove(self, ctx, word: str):
-        """Removes a word from the blacklist"""
+        """Removes a word from the filter list"""
         try:
             word = word.lower()
             if word in data[ctx.message.server.id]:
                 del data[ctx.message.server.id][word]
                 with open('data/blacklist.json', 'w') as f:
                     f.write(json.dumps(data, indent=4))
-                await self.Aya.say(word + " has been successfully removed from the blacklist.")
+                await self.Aya.say(word + " has been successfully removed from the filter list.")
             else:
-                await self.Aya.say(word + " is not blacklisted.")
+                await self.Aya.say(word + " is not filtered.")
         except KeyError:
-            await self.Aya.say("You must add a word to the blacklist before invoking this command.")
+            await self.Aya.say("You must add a word to the filter list before invoking this command.")
 
-    @blacklist.command(pass_context=True)
+    @filter.command(pass_context=True)
     @commands.has_permissions(manage_server=True)
     async def list(self, ctx):
-        """Lists current blacklisted words"""
+        """Lists current filtered words"""
         keylist = []
         try:
             for key in data[ctx.message.server.id].keys():
                 keylist.append(key)
             keylist = ', '.join(keylist)
-            await self.Aya.say('Blacklisted words: \n`' + keylist + '`')
+            await self.Aya.say('Filtered words: \n`' + keylist + '`')
         except KeyError:
-            await self.Aya.say('You must add a word to the blacklist before invoking this command.')
+            await self.Aya.say('You must add a word to the filter list before invoking this command.')
 
     async def on_message(self, message):
         serv_owner = message.server.owner

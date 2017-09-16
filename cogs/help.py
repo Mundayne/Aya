@@ -25,7 +25,8 @@ class Help:
          a.kick <name>: Kick someone out of the server
          a.ban <name>: Ban someone from the server
          a.unban <name>: Unban someone
-         a.blacklist <add|remove|list> <word>: Bans a word from the server
+         a.bans: Get a list of banned people in the server
+         a.filter <add|remove|list> <word>: Bans a word from the server
          a.clean <number>: Deletes a certain number of your messages
          a.purge <number>: Deletes a certain number of anyone's messages
          
@@ -41,7 +42,7 @@ class Help:
          a.gif <tag>: Get a random gif
          a.war: Play a game of war
          a.dice <number of dice>: Roll a certain number of dice
-         a.coinflip: Flip a coin
+         a.flipcoin: Flip a coin
          a.8ball <question>: Let the 8 ball decide your fate
          a.lottery: Enter in the lottery
          
