@@ -25,11 +25,13 @@ class Help:
          a.kick <name>: Kick someone out of the server
          a.ban <name>: Ban someone from the server
          a.unban <name>: Unban someone
-         a.blacklist <add|remove|list> <word>: Bans a word from the server 
+         a.blacklist <add|remove|list> <word>: Bans a word from the server
+         a.clean <number>: Deletes a certain number of your messages
+         a.purge <number>: Deletes a certain number of anyone's messages
          
          ---- PLUGINS ----
          
-         a.cogs: Shows the list of cogs that you can load and unload
+         a.coglist: Shows the list of cogs that you can load and unload
          a.load: Load a plugin
          a.reload: Reload a plugin
          a.unload: Unload a plugin

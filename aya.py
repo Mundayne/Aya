@@ -18,7 +18,7 @@ async def on_ready():
     print('Aya is ready! \n User : {} \n ID : {}'.format(Aya.user.name, Aya.user.id))
 
 @Aya.command(pass_context=True)
-async def cogs(ctx):
+async def coglist(ctx):
     """A better way to show the names of the cogs"""
     await Aya.say('cogs : ')
     for cog in default_extensions:
