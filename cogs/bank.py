@@ -4,7 +4,7 @@ import datetime
 import json
 
 
-class UserFeatures:
+class Bank:
     USER_FILE = "data/bankholders.json"
     DEFAULT_BALANCE = 200
     DEFAULT_PAYDAY = 100
@@ -83,4 +83,4 @@ class UserFeatures:
 
 
 def setup(Aya):
-    Aya.add_cog(UserFeatures(Aya))
+    Aya.add_cog(Bank(Aya))

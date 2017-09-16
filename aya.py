@@ -6,15 +6,10 @@ Aya.remove_command('help')
 
 default_extensions = [
     'cogs.help',
-    'cogs.invite',
     'cogs.moderator',
-    'cogs.coinflip',
-    'cogs.dice',
-    'cogs.gif',
-    'cogs.8ball',
-    'cogs.userfeatures',
+    'cogs.bank',
     'cogs.minigames',
-    'cogs.blacklist',
+    'cogs.misc'
 ]
 
 
@@ -87,8 +82,9 @@ async def ping():
     """Check if Aya is up and running"""
     await Aya.say('Pong!')
 
-@Aya.command()
-async def info():
+@Aya.command(pass_context=True)
+async def info(ctx):
+    serv_owner = ctx.message.server.owner
     '''Info for the bot'''
     em = discord.Embed(title='Bot Info', color=0xE74C3C,description='Info about Aya:')
     em.add_field(name='Name', value='Aya#5745')
@@ -99,7 +95,10 @@ async def info():
     em.add_field(name='Github', value='[/TheOxilium/Aya](https://github.com/TheOxilium/Aya)')
     em.set_footer(text='Aya')
     em.set_thumbnail(url='https://i.gyazo.com/49647cc71298498b2508721adbd2fccc.jpg')
-    await Aya.say(embed=em)
+    try:
+        await Aya.say(embed=em)
+    except discord.HTTPException:
+        await Aya.say('{} I need the embed links permission to send this.'.format(serv_owner.mention))
 
 
 if __name__ == "__main__":
@@ -108,4 +107,4 @@ if __name__ == "__main__":
     print('Good to go!')
     print('----------')
 
-Aya.run('')
+Aya.run('MzQ3MzkyNTM3MjA5NjAyMDQ5.DHfLQA.LzWaNOfdZeRxYf-9SJcj7Jk3s78')

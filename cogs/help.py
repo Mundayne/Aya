@@ -16,6 +16,10 @@ class Help:
          -----
          a.help: Help menu 
          
+         ---- INFO ----
+         
+         a.info: Shows important links, developers and contributors, and info about Aya
+         
          ---- MODERATION ----
          
          a.kick <name>: Kick someone out of the server
