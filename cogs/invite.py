@@ -9,8 +9,8 @@ class Invite:
     def __init__(self, Aya):
         self.Aya = Aya
 
-    @commands.command()
-    async def invite(self):
+    @commands.command(pass_context=True)
+    async def invite(self, ctx):
         """ Use this link to add Aya to your server! """
         serv_owner = ctx.message.server.owner
         color = ('#%06x' % random.randint(8, 0xFFFFFF))

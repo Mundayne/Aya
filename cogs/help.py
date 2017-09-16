@@ -7,8 +7,8 @@ class Help:
     def __init__(self, Aya):
         self.Aya = Aya
 
-    @commands.command()
-    async def help(self):
+    @commands.command(pass_context=True)
+    async def help(self, ctx):
         """Help Menu"""
         await self.Aya.say("""
          ```
