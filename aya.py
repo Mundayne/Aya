@@ -107,4 +107,4 @@ if __name__ == "__main__":
     print('Good to go!')
     print('----------')
 
-Aya.run('MzQ3MzkyNTM3MjA5NjAyMDQ5.DHfLQA.LzWaNOfdZeRxYf-9SJcj7Jk3s78')
+Aya.run('')

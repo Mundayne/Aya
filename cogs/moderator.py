@@ -2,6 +2,7 @@ import random
 import discord
 from discord.ext import commands
 import json
+import asyncio
 
 global data
 with open('data/blacklist.json', 'r') as f:
@@ -133,6 +134,37 @@ class Mod:
                     return
             else:
                 return
+
+    @commands.command(aliases=['p'], pass_context=True)
+    @commands.has_permissions(manage_server=True)
+    async def purge(self, ctx, msgs: int = 100):
+        '''Shortcut to clean all your messages.'''
+        await self.Aya.delete_message(ctx.message)
+        if msgs < 10000:
+            async for message in self.Aya.logs_from(ctx.message.channel, limit=msgs):
+                try:
+                    await self.Aya.delete_message(message)
+                    msg = await self.Aya.say('**'+str(msgs)+' messages** were successfully deleted.')
+                    asyncio.sleep(3)
+                    await self.Aya.delete_message(msg)
+                except:
+                    pass
+        else:
+            await self.Aya.send_message(ctx.message.channel, 'Too many messages to delete. Enter a number < 10000')
+
+    @commands.command(aliases=['c'], pass_context=True)
+    async def clean(self, ctx, msgs: int):
+        '''Shortcut to clean all your messages.'''
+        await self.Aya.delete_message(ctx.message)
+        if msgs < 10000:
+            async for message in self.Aya.logs_from(ctx.message.channel, limit=msgs):
+                try:
+                    if message.author == self.Aya.user:
+                        await self.Aya.delete_message(message)
+                except:
+                    pass
+        else:
+            await self.Aya.send_message(ctx.message.channel, 'Too many messages to delete. Enter a number < 10000')
 
 
 def setup(Aya):
