@@ -22,6 +22,7 @@ SOFTWARE.'''
 
 import discord
 from discord.ext import commands
+import random
 
 class Utility:
 
@@ -48,6 +49,7 @@ class Utility:
 
     @commands.command(pass_context=True, aliases=['ui', 'user'])
     async def userinfo(self, ctx, user: discord.Member = None):
+        '''See information about a user'''
         user = user or ctx.message.author
         server = ctx.message.server
         serv_owner = server.owner
@@ -67,8 +69,8 @@ class Utility:
         em = discord.Embed(color=0x832EEA, description=desc, timestamp=time)
         em.add_field(name='Name', value=user.name, inline=True)
         em.add_field(name='Member No.',value=str(member_number),inline = True)
-        em.add_field(name='Account Created', value=user.created_at.__format__('%A, %d. %B %Y'))
-        em.add_field(name='Join Date', value=user.joined_at.__format__('%A, %d. %B %Y'))
+        em.add_field(name='Account Created', value=user.created_at.__format__('%A, %B %d, %Y'))
+        em.add_field(name='Join Date', value=user.joined_at.__format__('%A, %B %d, %Y'))
         em.add_field(name='Roles', value=rolenames, inline=True)
         em.set_footer(text='User ID: '+str(user.id))
         em.set_thumbnail(url=avi)
@@ -76,6 +78,40 @@ class Utility:
             await self.Aya.say(embed = em)
         except discord.HTTPException:
             await self.Aya.say('{} I need the embed links permission to send this.'.format(serv_owner.mention))
+
+    @commands.command(pass_context=True, aliases=['si', 'server'])
+    async def serverinfo(self, ctx):
+        '''See server info'''
+        server = ctx.message.server
+        serv_owner = server.owner
+        online = len([m.status for m in server.members
+                      if m.status == discord.Status.online or
+                      m.status == discord.Status.idle or
+                      m.status == discord.Status.dnd])
+        total_users = len(server.members)
+        passed = (ctx.message.timestamp - server.created_at).days
+        created_at = ("Server created on {}. That's {} days ago!"
+                      "".format(server.created_at.strftime("%b %d %Y at %H:%M"), passed))
+        color = ('#%06x' % random.randint(0, 0xFFFFFF))
+        color = int(color[1:], 16)
+        em = discord.Embed(description=created_at, color=color)
+        em.add_field(name='Region', value=str(server.region))
+        em.add_field(name='Users', value='{}/{}'.format(online, total_users))
+        em.add_field(name='Roles', value=str(len(server.roles)))
+        em.add_field(name='Owner', value=str(serv_owner))
+        em.set_footer(text='Server ID: ' + server.id)
+
+        if server.icon_url:
+            em.set_author(name=server.name, icon_url=server.icon_url)
+            em.set_thumbnail(url=server.icon_url)
+        else:
+            em.set_author(name=server.name)
+
+        try:
+            await self.Aya.say(embed=em)
+        except discord.HTTPException:
+            await self.Aya.say('{} I need the embed links permission to send this.'.format(serv_owner.mention))
+
 
 
 def setup(Aya):

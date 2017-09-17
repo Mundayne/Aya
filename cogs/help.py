@@ -20,6 +20,7 @@ class Help:
          
          a.info: Shows important info about Aya
          a.userinfo <user>: Gets the user info of someone
+         a.serverinfo: See some info about the server
          
          ---- MODERATION ----
          
