@@ -14,11 +14,12 @@ class Help:
          ```
          >> This is the Aya commands index.
          -----
-         a.help: Help menu 
+         a.help: Help menu
          
-         ---- INFO ----
+         ---- UTILITY ----
          
-         a.info: Shows important links, developers and contributors, and info about Aya
+         a.info: Shows important info about Aya
+         a.userinfo <user>: Gets the user info of someone
          
          ---- MODERATION ----
          
