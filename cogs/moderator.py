@@ -35,24 +35,32 @@ class Mod:
 
     def __init__(self, Aya):
         self.Aya = Aya
+        self.kick_and_ban_msg = ['Done. That felt good.',
+                                 'Cya sucker!',
+                                 'Looks like we\'ll never see him again!',
+                                 'Let\'s hope he\'s not back in 5 minutes.',
+                                 'Enough is ENOUGH!']
+        self.unban_msg = ['Ahhh... Old memories...',
+                          'And... He\'s back',
+                          'And I saw Michael Jordan walking down the street...',
+                          'Forgiveness is key.',
+                          'I wonder how much he\'s grown since then...']
 
     @commands.command(pass_context=True)
-    async def kick(self, ctx, *, member):
+    async def kick(self, ctx, *, member: discord.Member):
         """Kicks someone out of the server"""
-        kickmsg = ['Poor %s is out!', 'These people don\'t understand!', 'Cya %s!']
         try:
             await self.Aya.kick(member)
-            await self.Aya.say(random.choice(kickmsg) % member)
-        except discord.Forbidden:
-            await self.Aya.send_message(ctx.message.channel, '{}: Who do you think you are?'
-                                        .format(ctx.message.author))
+            await self.Aya.say(random.choice(self.kick_and_ban_msg))
+        except:
+            await self.Aya.say('You don\'t have the permission to kick members.')
 
     @commands.command(pass_context=True)
     async def ban(self, ctx, member: discord.Member):
         '''Ban someone from the server.'''
         try:
             await self.Aya.ban(member)
-            await self.Aya.say('Banned {} from the server.'.format(member))
+            await self.Aya.say(random.choice(self.kick_and_ban_msg))
         except:
             await self.Aya.say('You don\'t have the permission to ban members.')
 
@@ -63,7 +71,7 @@ class Mod:
     async def _unban(self, ctx, server, user):
         try:
             await self.Aya.unban(server, user)
-            await self.Aya.say('Unbanned {} from the server.'.format(user))
+            await self.Aya.say(random.choice(self.unban_msg))
         except:
             await self.Aya.say('You don\'t have the permission to unban members.')
 
