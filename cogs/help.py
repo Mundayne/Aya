@@ -7,21 +7,34 @@ class Help:
     def __init__(self, Aya):
         self.Aya = Aya
 
-    @commands.command()
-    async def help(self):
+    @commands.command(pass_context=True)
+    async def help(self, ctx):
         """Help Menu"""
         await self.Aya.say("""
          ```
          >> This is the Aya commands index.
          -----
-         a.help: Help menu 
+         a.help: Help menu
+         
+         ---- UTILITY ----
+         
+         a.info: Shows important info about Aya
+         a.userinfo <user>: Gets the user info of someone
+         a.serverinfo: See some info about the server
+         
          ---- MODERATION ----
+         
          a.kick <name>: Kick someone out of the server
          a.ban <name>: Ban someone from the server
          a.unban <name>: Unban someone
+         a.bans: Get a list of banned people in the server
+         a.filter <add|remove|list> <word>: Bans a word from the server
+         a.clean <number>: Deletes a certain number of your messages
+         a.purge <number>: Deletes a certain number of anyone's messages
          
          ---- PLUGINS ----
-         a.cogs: Shows the list of cogs that you can load and unload
+         
+         a.coglist: Shows the list of cogs that you can load and unload
          a.load: Load a plugin
          a.reload: Reload a plugin
          a.unload: Unload a plugin
@@ -31,7 +44,7 @@ class Help:
          a.gif <tag>: Get a random gif
          a.war: Play a game of war
          a.dice <number of dice>: Roll a certain number of dice
-         a.coinflip: Flip a coin
+         a.flipcoin: Flip a coin
          a.8ball <question>: Let the 8 ball decide your fate
          a.lottery: Enter in the lottery
          

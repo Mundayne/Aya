@@ -6,15 +6,11 @@ Aya.remove_command('help')
 
 default_extensions = [
     'cogs.help',
-    'cogs.invite',
     'cogs.moderator',
-    'cogs.coinflip',
-    'cogs.dice',
-    'cogs.gif',
-    'cogs.8ball',
-    'cogs.userfeatures',
+    'cogs.bank',
     'cogs.minigames',
-    'cogs.blacklist',
+    'cogs.misc',
+    'cogs.utility'
 ]
 
 
@@ -23,7 +19,7 @@ async def on_ready():
     print('Aya is ready! \n User : {} \n ID : {}'.format(Aya.user.name, Aya.user.id))
 
 @Aya.command(pass_context=True)
-async def cogs(ctx):
+async def coglist(ctx):
     """A better way to show the names of the cogs"""
     await Aya.say('cogs : ')
     for cog in default_extensions:
